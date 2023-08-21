@@ -1,56 +1,101 @@
 // External Packages
-const fs = require('fs');
+const fs =  require('fs');
 const inquirer = require('inquirer');
-const util = require('util');
+
 
 // Internal Packages
 const shapes = require('./lib/shapes');
 
-const questions = [
-    {
-        type: 'input',
-        message: 'Enter 1, 2, or 3 letters of your choice: ',
-        name: 'letters',
-        validate: function(answer) {
-            if(answer.length < 1 || answer.length > 3) {
-                return console.log('Answer bust be either 1, 2, or 3 letters.')
-            } else {
-                return true;
+const promptUser = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Enter the first of your three letters: ',
+            name: 'letter1',
+            validate: function(answer) {
+                if(answer.length === 1 && answer.match(/[A-Za-z]/)) {
+                        return true;
+                } else {
+                    return console.log('Answer bust be only 1 letter.')
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter the first of your three letters: ',
+            name: 'letter2',
+            validate: function(answer) {
+                if(answer.length === 1 && answer.match(/[A-Za-z]/)) {
+                        return true;
+                } else {
+                    return console.log('Answer bust be only 1 letter.')
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Enter the first of your three letters: ',
+            name: 'letter3',
+            validate: function(answer) {
+                if(answer.length === 1 && answer.match(/[A-Za-z]/)) {
+                        return true;
+                } else {
+                    return console.log('Answer bust be only 1 letter.')
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'What color do you want your text to be? ',
+            name: 'textColor',
+            validate: function(answer) {
+                if(answer.length < 1) {
+                    return console.log('Must provide an answer.')
+                } else {
+                    return true;
+                }
+            }
+        },
+        {
+            type: 'list',
+            message: 'Which shape do you want? ',
+            choices: ['Circle', 'Square', 'Triangle'],
+            name: 'shape'
+        },
+        {
+            type: 'input',
+            message: 'What color do you want your shape to be? ',
+            name: 'shapeColor',
+            validate: function(answer) {
+                if(answer.length < 1) {
+                    return console.log('Must provide an answer.')
+                } else {
+                    return true
+                }
             }
         }
-    },
-    {
-        type: 'input',
-        message: 'What color do you want your text to be? ',
-        name: 'text-color',
-        validate: function(answer) {
-            if(answer.length < 1) {
-                return console.log('Must provide an answer.')
-            } else {
-                return true;
-            }
-        }
-    },
-    {
-        type: 'list',
-        message: 'Which shape do you want? ',
-        choices: ['Circle', 'Square', 'Triangle'],
-        name: 'shape'
-    },
-    {
-        type: 'input',
-        message: 'What color do you want your shape to be? ',
-        name: 'shape-color',
-        validate: function(answer) {
-            if(answer.length < 1) {
-                return console.log('Must provide an answer.')
-            } else {
-                return true
-            }
-        }
-    }
-];
+    ]);
+};
 
-inquirer.prompt(questions).then((data) => {
-    
-})
+const generateSVG = (letter1, letter2, letter3, textColor, shapeColor) => {
+    const svgContent = `
+    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="150,10 290,290 10,290" fill='${shapeColor}' />
+    <text x="70" y="220" font-size="70" fill='${textColor}'>${letter1}</text>
+    <text x="130" y="220" font-size="70" fill='${textColor}'>${letter2}</text>
+    <text x="180" y="220" font-size="70" fill='${textColor}'>${letter3}</text>
+    </svg>
+    `
+
+    return svgContent;
+};
+
+
+(async () => {
+    const answers = await promptUser();
+    const svg = generateSVG(answers.letter1, answers.letter2, answers.letter3, answers.textColor, answers.shapeColor);
+  
+    fs.writeFileSync('logo.svg', svg, 'utf-8');
+  
+    console.log('SVG file created successfully.');
+  })();
