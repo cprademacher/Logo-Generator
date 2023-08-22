@@ -22,7 +22,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            message: 'Enter the first of your three letters: ',
+            message: 'Enter the second of your three letters: ',
             name: 'letter2',
             validate: function(answer) {
                 if(answer.length === 1 && answer.match(/[A-Za-z]/)) {
@@ -34,7 +34,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            message: 'Enter the first of your three letters: ',
+            message: 'Enter the third of your three letters: ',
             name: 'letter3',
             validate: function(answer) {
                 if(answer.length === 1 && answer.match(/[A-Za-z]/)) {
@@ -77,6 +77,9 @@ const promptUser = () => {
     ]);
 };
 
+// Need to figure out how to make svgContent = the selected shape and then
+// probably return the shape.createShape();
+
 const generateSVG = (letter1, letter2, letter3, textColor, shapeColor) => {
     const svgContent = `
     <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
@@ -99,3 +102,5 @@ const generateSVG = (letter1, letter2, letter3, textColor, shapeColor) => {
   
     console.log('SVG file created successfully.');
   })();
+
+//   Also still need to set up tests with jest.
