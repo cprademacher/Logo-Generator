@@ -1,8 +1,8 @@
 
-      <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="150,10 290,290 10,290" fill='black' />
-      <text x="70" y="220" font-size="80" fill='orange'>M</text>
-      <text x="130" y="220" font-size="80" fill='orange'>Y</text>
-      <text x="180" y="220" font-size="80" fill='orange'>R</text>
+      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="200" height="200" fill='green' />
+      <text x="25" y="130" font-size="70" fill='red'>M</text>
+      <text x="90" y="130" font-size="70" fill='red'>Y</text>
+      <text x="145" y="130" font-size="70" fill='red'>R</text>
       </svg>
       

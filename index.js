@@ -89,29 +89,29 @@ const generateSVG = (
 ) => {
   if (shape === "Triangle") {
     return `
-      <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
       <polygon points="150,10 290,290 10,290" fill='${shapeColor}' />
-      <text x="70" y="220" font-size="80" fill='${textColor}'>${letter1.toUpperCase()}</text>
-      <text x="130" y="220" font-size="80" fill='${textColor}'>${letter2.toUpperCase()}</text>
-      <text x="180" y="220" font-size="80" fill='${textColor}'>${letter3.toUpperCase()}</text>
+      <text x="105" y="220" font-size="40" fill='${textColor}'>${letter1.toUpperCase()}</text>
+      <text x="143" y="220" font-size="40" fill='${textColor}'>${letter2.toUpperCase()}</text>
+      <text x="174" y="220" font-size="40" fill='${textColor}'>${letter3.toUpperCase()}</text>
       </svg>
       `;
   } else if (shape === "Square") {
     return `
-      <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="10" width="280" height="280" fill='${shapeColor}' />
-      <text x="50" y="180" font-size="90" fill='${textColor}'>${letter1.toUpperCase()}</text>
-      <text x="125" y="180" font-size="90" fill='${textColor}'>${letter2.toUpperCase()}</text>
-      <text x="190" y="180" font-size="90" fill='${textColor}'>${letter3.toUpperCase()}</text>
+      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="200" height="200" fill='${shapeColor}' />
+      <text x="25" y="130" font-size="70" fill='${textColor}'>${letter1.toUpperCase()}</text>
+      <text x="90" y="130" font-size="70" fill='${textColor}'>${letter2.toUpperCase()}</text>
+      <text x="145" y="130" font-size="70" fill='${textColor}'>${letter3.toUpperCase()}</text>
       </svg>
       `;
   } else if (shape === "Circle") {
     return `
-      <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="150" cy="150" r="130" fill='${shapeColor}' />
-      <text x="50" y="180" font-size="90" fill='${textColor}'>${letter1.toUpperCase()}</text>
-      <text x="130" y="180" font-size="90" fill='${textColor}'>${letter2.toUpperCase()}</text>
-      <text x="195" y="180" font-size="90" fill='${textColor}'>${letter3.toUpperCase()}</text>
+      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="110" r="90" fill='${shapeColor}' />
+      <text x="50" y="130" font-size="65" fill='${textColor}'>${letter1.toUpperCase()}</text>
+      <text x="105" y="130" font-size="65" fill='${textColor}'>${letter2.toUpperCase()}</text>
+      <text x="155" y="130" font-size="65" fill='${textColor}'>${letter3.toUpperCase()}</text>
       </svg>
       `;
   }
