@@ -130,7 +130,7 @@ const generateSVG = (
 
   fs.writeFileSync("logo.svg", svg, "utf-8");
 
-  console.log("SVG file created successfully.");
+  console.log("Generated logo.svg");
 })();
 
 //   Also still need to set up tests with jest.
