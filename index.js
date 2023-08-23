@@ -3,7 +3,8 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 // Internal Packages
-const { Shape, Triangle, Square, Circle } = require("./lib/shapes");
+const { Triangle, Square, Circle } = require("./lib/shapes");
+
 
 const promptUser = () => {
   return inquirer.prompt([
@@ -88,32 +89,14 @@ const generateSVG = (
   shape
 ) => {
   if (shape === "Triangle") {
-    return `
-      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="150,10 290,290 10,290" fill='${shapeColor}' />
-      <text x="105" y="220" font-size="40" fill='${textColor}'>${letter1.toUpperCase()}</text>
-      <text x="143" y="220" font-size="40" fill='${textColor}'>${letter2.toUpperCase()}</text>
-      <text x="174" y="220" font-size="40" fill='${textColor}'>${letter3.toUpperCase()}</text>
-      </svg>
-      `;
+    const triangle = new Triangle(letter1, letter2, letter3, textColor, shapeColor);
+    return triangle.render();
   } else if (shape === "Square") {
-    return `
-      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="10" width="200" height="200" fill='${shapeColor}' />
-      <text x="25" y="130" font-size="70" fill='${textColor}'>${letter1.toUpperCase()}</text>
-      <text x="90" y="130" font-size="70" fill='${textColor}'>${letter2.toUpperCase()}</text>
-      <text x="145" y="130" font-size="70" fill='${textColor}'>${letter3.toUpperCase()}</text>
-      </svg>
-      `;
+    const square = new Square(letter1, letter2, letter3, textColor, shapeColor);
+    return square.render();
   } else if (shape === "Circle") {
-    return `
-      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="120" cy="110" r="90" fill='${shapeColor}' />
-      <text x="50" y="130" font-size="65" fill='${textColor}'>${letter1.toUpperCase()}</text>
-      <text x="105" y="130" font-size="65" fill='${textColor}'>${letter2.toUpperCase()}</text>
-      <text x="155" y="130" font-size="65" fill='${textColor}'>${letter3.toUpperCase()}</text>
-      </svg>
-      `;
+    const circle = new Circle(letter1, letter2, letter3, textColor, shapeColor);
+    return circle.render();
   }
 };
 
