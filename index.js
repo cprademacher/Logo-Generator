@@ -77,8 +77,6 @@ const promptUser = () => {
   ]);
 };
 
-// Need to figure out how to make svgContent = the selected shape and then
-// probably return the shape.createShape();
 
 const generateSVG = (
   letter1,
@@ -116,4 +114,3 @@ const generateSVG = (
   console.log("Generated logo.svg");
 })();
 
-//   Also still need to set up tests with jest.
