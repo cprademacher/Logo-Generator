@@ -1,8 +1,8 @@
 
             <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="200" height="200" fill='green' />
-            <text x="25" y="130" font-size="70" fill='red'>M</text>
-            <text x="90" y="130" font-size="70" fill='red'>Y</text>
-            <text x="145" y="130" font-size="70" fill='red'>R</text>
+            <circle cx="120" cy="110" r="90" fill='green' />
+            <text x="50" y="130" font-size="65" fill='blue'>M</text>
+            <text x="105" y="130" font-size="65" fill='blue'>Y</text>
+            <text x="155" y="130" font-size="65" fill='blue'>R</text>
             </svg>
             
